@@ -1,3 +1,4 @@
-FROM openjdk:8-jre-alpine
-ADD final-project-template-0.0.1-SNAPSHOT.jar hospital.jar
-ENTRYPOINT ["java", "-jar", "hospital.jar"]
+FROM tomcat:8.5-jre8-alpine
+ADD hospital-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/hospital.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
