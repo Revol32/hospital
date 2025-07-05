@@ -19,21 +19,21 @@ public class DoctorRepository {
 
 
     public List<DoctorDto> getAllDoctors() {
-        return jdbcTemplate.query("SELECT doctor_details.*,users.* FROM `users` LEFT JOIN  `doctor_details` " +
+        return jdbcTemplate.query("SELECT doctor_details.*,users.* FROM users LEFT JOIN  doctor_details " +
                         "ON users.user_id = doctor_details.dd_user_id WHERE users.role = 'DOCTOR'",
                 doctorMapper);
     }
 
     public DoctorDto getDoctorById(long id) {
-        List<DoctorDto> doctorDtoList = jdbcTemplate.query("SELECT doctor_details.*,users.* FROM `users` LEFT JOIN  `doctor_details` " +
-                        "ON users.user_id = doctor_details.dd_user_id WHERE users.role = 'DOCTOR' AND `user_id` = ? LIMIT 1",
+        List<DoctorDto> doctorDtoList = jdbcTemplate.query("SELECT doctor_details.*,users.* FROM users LEFT JOIN  doctor_details " +
+                        "ON users.user_id = doctor_details.dd_user_id WHERE users.role = 'DOCTOR' AND user_id = ? LIMIT 1",
                 doctorMapper, id);
         return doctorDtoList.get(0);
     }
 
     public boolean saveDoctorDetails(long id, String specialty, String specification, String experience) {
-        return jdbcTemplate.update("INSERT INTO `doctor_details`(`dd_user_id`, `specialty`, `specification`, `experience`)" +
-                        " VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE `specialty` = ? , `specification` = ? , `experience` = ?",
+        return jdbcTemplate.update("INSERT INTO doctor_details(dd_user_id, specialty, specification, experience)" +
+                        " VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE specialty = ? , specification = ? , experience = ?",
                 id, specialty, specification, experience, specialty, specification, experience) != 0;
     }
 

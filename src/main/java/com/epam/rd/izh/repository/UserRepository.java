@@ -53,7 +53,7 @@ public class UserRepository {
 
     @Nullable
     public AuthorizedUser getAuthorizedUserByLogin(@Nonnull String login) {
-        List<AuthorizedUser> users = jdbcTemplate.query("SELECT * FROM `users` WHERE `login` = ? LIMIT 1", authorizedUserMapper, login);
+        List<AuthorizedUser> users = jdbcTemplate.query("SELECT * FROM users WHERE login = ? LIMIT 1", authorizedUserMapper, login);
         if (users.isEmpty()) {
             return null;
         }
@@ -69,7 +69,7 @@ public class UserRepository {
     }
 
     public boolean registerUser(@Nonnull RegisteredUserDto registeredUser) {
-        return jdbcTemplate.update("INSERT INTO `users` (`user_name`,`user_surname`,`user_birthday`,`login`,`password`,`role`) VALUES (?,?,?,?,?,?)",
+        return jdbcTemplate.update("INSERT INTO users (user_name,user_surname,user_birthday,login,password,role) VALUES (?,?,?,?,?,?)",
                 registeredUser.getName(),
                 registeredUser.getSurname(),
                 LocalDate.parse(registeredUser.getBirthday()),
@@ -79,7 +79,7 @@ public class UserRepository {
     }
 
     public MyUser getUserByLogin(String login) {
-        List<MyUser> users = jdbcTemplate.query("SELECT * FROM `users` WHERE `login` = ? LIMIT 1", userMapper, login);
+        List<MyUser> users = jdbcTemplate.query("SELECT * FROM users WHERE login = ? LIMIT 1", userMapper, login);
         if (users.isEmpty()) {
             return null;
         }
@@ -87,7 +87,7 @@ public class UserRepository {
     }
 
     public MyUser getUserById(long id) {
-        List<MyUser> users = jdbcTemplate.query("SELECT * FROM `users` WHERE `user_id` = ? LIMIT 1", userMapper, id);
+        List<MyUser> users = jdbcTemplate.query("SELECT * FROM users WHERE user_id = ? LIMIT 1", userMapper, id);
         if (users.isEmpty()) {
             return null;
         }
@@ -95,8 +95,8 @@ public class UserRepository {
     }
 
     public List<MyUser> getDoctorPatients(long doctorId) {
-        return jdbcTemplate.query("SELECT * FROM `users` WHERE user_id IN (" +
-                "SELECT `patient_id` FROM `timetable` WHERE `doctor_id` = ? AND `visit` IS NOT NULL)", userMapper, doctorId);
+        return jdbcTemplate.query("SELECT * FROM users WHERE user_id IN (" +
+                "SELECT patient_id FROM timetable WHERE doctor_id = ? AND visit IS NOT NULL)", userMapper, doctorId);
     }
 
 }
