@@ -16,8 +16,8 @@ import org.springframework.context.annotation.ComponentScan;
  * (например, интеграционным тестам), что это Spring Boot приложение.
  */
 @SpringBootApplication
-public class RDIzhFinalProjectTemplate {
+public class HospitalProject {
     public static void main(String[] args) {
-        SpringApplication.run(RDIzhFinalProjectTemplate.class, args);
+        SpringApplication.run(HospitalProject.class, args);
     }
 }
