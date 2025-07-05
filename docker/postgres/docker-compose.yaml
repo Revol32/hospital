@@ -1,0 +1,20 @@
+version: '3'
+networks:
+  dce-planner-net:
+services:
+  dce-planner-database:
+    container_name: postgres-db
+    image: postgres:14.18
+    restart: on-failure:3
+    networks:
+      - hospital-net
+    volumes:
+      - hospital-database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=hospital
+    ports:
+      - 5432:5432
+volumes:
+  hospital-database:
