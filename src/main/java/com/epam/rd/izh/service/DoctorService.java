@@ -10,9 +10,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class DoctorService {
@@ -28,7 +30,10 @@ public class DoctorService {
 
     public Map<TimeTableDto, MyUser> getDoctorDayAppointments(Authentication authentication) {
         Map<TimeTableDto, MyUser> result = new LinkedHashMap<>();
-        List<TimeTableDto> time = timeTableRepository.getTimeTableForDoctorToDay(userRepository.getUserByLogin(authentication.getName()).getId(), timeHolder.getDate());
+        List<TimeTableDto> time = timeTableRepository.getTimeTableForDoctorToDay(userRepository.getUserByLogin(authentication.getName()).getId(), timeHolder.getDate())
+                .stream()
+                .sorted(Comparator.comparing(TimeTableDto::getTime_app))
+                .collect(Collectors.toList());
         for (TimeTableDto timeTableDto : time) {
             result.put(timeTableDto, userRepository.getUserById(timeTableDto.getPatient_id()));
         }

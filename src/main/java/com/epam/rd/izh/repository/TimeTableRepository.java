@@ -98,18 +98,18 @@ public class TimeTableRepository {
                 " (SELECT z.*, doctor_details.specialty, doctor_details.specification, doctor_details.experience FROM doctor_details INNER JOIN\n" +
                 " (SELECT y.*,users.user_surname as doctorSurname, users.user_name as doctorName FROM users INNER JOIN\n" +
                 " (SELECT x.*,users.user_name as patientName, users.user_surname as patientSurname, users.user_birthday as patientBirthday \n" +
-                " FROM users INNER JOIN (SELECT * FROM timetable WHERE patient_id = ? AND visit = 1 ANDdate_app BETWEEN ? AND ?) AS x\n" +
+                " FROM users INNER JOIN (SELECT * FROM timetable WHERE patient_id = ? AND visit = true AND date_app BETWEEN ? AND ?) AS x\n" +
                 " ON users.user_id = x.patient_id) AS y\n" +
                 " ON users.user_id = y.doctor_id) AS z\n" +
                 " ON doctor_details.dd_user_id = z.doctor_id) AS k WHERE k.rec_id NOT IN (SELECT rec_id FROM reviews)", appointmentMapper, patientId, date.minusDays(14), date);
     }
 
     public boolean patientDidNotCome(long recId) {
-        return jdbcTemplate.update("UPDATE timetable SET visit = 0 WHERE rec_id = ? ", recId) > 0;
+        return jdbcTemplate.update("UPDATE timetable SET visit = false WHERE rec_id = ? ", recId) > 0;
     }
 
     public boolean patientCome(long recId) {
-        return jdbcTemplate.update("UPDATE timetable SET visit = 1 WHERE rec_id = ? ", recId) > 0;
+        return jdbcTemplate.update("UPDATE timetable SET visit = true WHERE rec_id = ? ", recId) > 0;
     }
 
     public boolean saveRecordOfAppointment(long recId, String record) {
