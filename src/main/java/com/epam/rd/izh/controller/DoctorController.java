@@ -25,7 +25,7 @@ public class DoctorController {
     @GetMapping("/doctor/didNotCome/{recId}")
     public String didNotCome(@PathVariable long recId, Model model) {
         if (!doctorService.patientDidNotCome(recId)) {
-            model.addAttribute("updateError", "Ошибка обновления");
+            model.addAttribute("updateError", "Update error");
         }
         return "redirect:/doctor/today";
     }
@@ -43,7 +43,7 @@ public class DoctorController {
     @PostMapping("/doctor/saveRecord")
     public String saveRecord(@ModelAttribute("recordForm") TimeTableDto recordSaveForm, Model model) {
         if (!doctorService.saveRecordOfAppointment(recordSaveForm.getRec_id(), recordSaveForm.getRecord())) {
-            model.addAttribute("updateError", "Ошибка обновления записи");
+            model.addAttribute("updateError", "Update error");
         }
         return "redirect:/doctor/today";
     }

@@ -44,11 +44,11 @@ public class AdminController {
     public String adminUpdateDoctor(@Valid @ModelAttribute("editDoctorForm") DoctorDetailsDto registeredDoctorDetails,
                                     BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("updateDoctorError", "Что-то пошло не так");
+            model.addAttribute("updateDoctorError", "Something went wrong");
             return "redirect:redirect:/admin/doctors";
         }
         if (adminService.saveDoctorDetails(registeredDoctorDetails)) {
-            model.addAttribute("updateDoctorError", "Изменение пользователя неудалось");
+            model.addAttribute("updateDoctorError", "Changing user failed");
         }
         return "redirect:/admin/doctors";
     }
@@ -80,7 +80,7 @@ public class AdminController {
     private String saveTimeTableForDate(@ModelAttribute("dayTimeTableForm") FormsData dayTimeTableForm, @PathVariable long doctorId, Model model) {
         if (adminService.changeTimeTableToDoctorForDay(doctorId, dayTimeTableForm.getDate(), TimeHolder.pm, dayTimeTableForm.getPm()) ||
                 adminService.changeTimeTableToDoctorForDay(doctorId, dayTimeTableForm.getDate(), TimeHolder.am, dayTimeTableForm.getAm())) {
-            model.addAttribute("updateDoctorError", "Пользователь небыл изменен");
+            model.addAttribute("updateDoctorError", "The user has not been modified");
         }
         return "redirect:/admin/doctorTimeWork/" + doctorId;
     }
@@ -97,7 +97,7 @@ public class AdminController {
     public String processCreateDoctor(@Valid @ModelAttribute("registrationDoctorForm") RegisteredDoctorDto registeredDoctor,
                                       BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("updateError", "Заполните коректно все поля");
+            model.addAttribute("updateError", "Please fill in all fields correctly");
           return "redirect:/admin/createDoctor";
         }
         registeredDoctor.setRole("DOCTOR");

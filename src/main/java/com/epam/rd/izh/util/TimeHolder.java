@@ -3,6 +3,8 @@ package com.epam.rd.izh.util;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -16,6 +18,7 @@ public class TimeHolder {
     private LocalDateTime time = LocalDateTime.now();
     private LocalDate date = LocalDate.parse("2021-02-03");
 
+    public static DateFormat time12Format = new SimpleDateFormat("hh:mm a");
     public static List<LocalTime> am;
     public static List<LocalTime> pm;
 

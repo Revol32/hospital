@@ -79,7 +79,7 @@ public class AuthenticationController {
         //registeredUser.validate(registeredUserDto, bindingResult);
 
         if (bindingResult.hasErrors()) {
-          model.addAttribute("updateError", "Заполните коректно все поля");
+          model.addAttribute("updateError", "Please fill in all fields correctly");
           return "redirect:/registration";
         }
         /**

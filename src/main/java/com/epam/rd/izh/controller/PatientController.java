@@ -40,7 +40,7 @@ public class PatientController {
     @PostMapping("/patient/getAppointment")
     public String signUpToAppointment(@ModelAttribute("timeForm") FormsData appointment, Model model) {
         if (!patientService.recordPatient(appointment.getDoctorId(), appointment.getDate(), appointment.getTime_app(), appointment.getPatient_id())) {
-            model.addAttribute("updateDoctorError", "Ошибка при попытке записи");
+            model.addAttribute("updateDoctorError", "Update doctor error");
             return "redirect:/patient/doctor/" + appointment.getDoctorId();
         }
         return "redirect:/patient/doctors";
@@ -76,7 +76,7 @@ public class PatientController {
     @PostMapping("/patient/saveReview")
     public String saveReview(@ModelAttribute("reviewForm") ReviewDto review, Model model) {
         if (patientService.saveReview(review.getRec_id(), review.getReview())) {
-            model.addAttribute("updateError", "Сохранение отзыва не удалось");
+            model.addAttribute("updateError", "Failed to save feedback");
         }
         return "redirect:/patient/reviews";
     }
