@@ -31,11 +31,11 @@
                         <div class= "doctor-info clear"><p id = "specification${doctor.id}">${doctor.specification}</p></div>
                         <div class = "doctor-act">
                             <sec:authorize access="hasAuthority('ADMIN')">
-                                <div class = "doctor-button"><a href="/admin/doctorTimeWork/${doctor.id}"><p>Расписание работы</p></a></div>
-                                <div class = "doctor-button"><a href="#" onclick="editDoctor('${doctor.id}')"><p>Редактировать информацию</p></a></div>
+                                <div class = "doctor-button"><a href="/admin/doctorTimeWork/${doctor.id}"><p>Working hours</p></a></div>
+                                <div class = "doctor-button"><a href="#" onclick="editDoctor('${doctor.id}')"><p>Edit information</p></a></div>
                             </sec:authorize>
                             <sec:authorize access="hasAuthority('PATIENT')">
-                                <div class = "doctor-button"><a href="/patient/doctor/${doctor.id}"><p>Запись на прием</p></a></div>
+                                <div class = "doctor-button"><a href="/patient/doctor/${doctor.id}"><p>Make an appointment</p></a></div>
                             </sec:authorize>
                         </div>
                         <hr>
@@ -50,7 +50,7 @@
         <div class = "dark-background-form-holder" id = "dark-background-form-holder">
             <form:form action="/admin/updateDoctor" method="post" modelAttribute="editDoctorForm">
                 <p title="Edit form">
-                Внесение изменений
+                Edit form
                 </p>
                 <h3 id="doctorName"></h3>
 
@@ -58,22 +58,22 @@
                    <form:hidden path="id" id="id" title="id" />
                 </div>
                 <div>
-                   <label title="Специальность">Специальность</label>
+                   <label title="Специальность">Specialty</label>
                    <form:input path="specialty" id="specialty" title="Specialty" />
                 </div>
 
                 <div>
-                   <label title="Описание">Описание</label>
+                   <label title="Описание">Info</label>
                    <form:textarea rows="5" cols="30" path="specification" id="specification" title="Specification" />
                 </div>
 
                 <div>
-                   <label title="Ученая степень">Ученая степень</label>
+                   <label title="Ученая степень">Experience</label>
                    <form:input path="experience" id="experience" title="Experience" />
                 </div>
 
                 <div>
-                <button type="submit" id="registrationButton" >Подтвердить</button>
+                <button type="submit" id="registrationButton" >Confirm</button>
                 </div>
             </form:form>
 

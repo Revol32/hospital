@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <div class = "ajaxContent">
     <div class="error">${updateError}</div>
-    <h3>История приемов пациента: ${patient.name} ${patient.surname}</h3>
-    <div class = "doctor-spec"><p class = "doctorSmallInfo">Дата рождения: ${patient.birthday}</p></div>
+    <h3>Patient's appointment history: ${patient.name} ${patient.surname}</h3>
+    <div class = "doctor-spec"><p class = "doctorSmallInfo">Date of birth: ${patient.birthday}</p></div>
      <c:forEach items="${patientRecords}" var="record">
         <div class = "doctor-frame">
             <div class = "info-frame">
                 <div class = "doctor-name" >${record.date_app} ${record.time_app}</div>
                 <div class = "doctor-record">
-                <c:if test="${record.visit == false}">Не явился</c:if>
+                <c:if test="${record.visit == false}">Missed an appointment</c:if>
                     ${record.record}
                 </div>
             </div>

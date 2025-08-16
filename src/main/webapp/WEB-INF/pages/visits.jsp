@@ -24,17 +24,17 @@
         <div class = "content-warp">
             <div class = "content">
                 <div class="error">${updateError}</div>
-                <h3>Ваши записи на прием:</h3>
+                <h3>Your appointments:</h3>
 
                     <c:forEach items="${timePatientRecord}" var="timePatientRecordOne">
                     <div class = "day-frame">
                         <h4>${timePatientRecordOne.date_app} ${timePatientRecordOne.time_app}</h4>
                         <div class="doctor-name">${timePatientRecordOne.doctorName} ${timePatientRecordOne.doctorSurname}</div>
-                         <div class = "doctor-spec"><p class = "doctorSmallInfo left">Специальность:</p><p class = "doctorSmallInfo"> ${timePatientRecordOne.specialty}</p>
+                         <div class = "doctor-spec"><p class = "doctorSmallInfo left">Specialty:</p><p class = "doctorSmallInfo"> ${timePatientRecordOne.specialty}</p>
                         <p class = "doctorSmallInfo">${timePatientRecordOne.experience}</p></div>
                         <div class= "doctor-info"><p>${timePatientRecordOne.specification}</p></div>
                     </div>
-                    <div class = "unRecButton" onClick="dropRecord('${timePatientRecordOne.rec_id}')"><p>Отменить запись</p></div>
+                    <div class = "unRecButton" onClick="dropRecord('${timePatientRecordOne.rec_id}')"><p>Cancel appointment</p></div>
                     <hr>
                     </c:forEach>
 

@@ -6,22 +6,22 @@
     <sec:authorize access="hasAuthority('ADMIN')">
         <tr>
              <td class = "left-menu-bar">
-                <a href="/admin/doctors"><p>Список докторов</p></p></a>
+                <a href="/admin/doctors"><p>List of doctors</p></p></a>
             </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/admin/createDoctor"><p>Зерегистрировать врача</p></a>
+                <a href="/admin/createDoctor"><p>Register a doctor</p></a>
              </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/admin/visitRecords"><p>Просмотр архива записей врачей</p></a>
+                <a href="/admin/visitRecords"><p>View archive of doctors' records</p></a>
              </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/admin/reviews"><p>Просмотр отзывов о врачах</p></a>
+                <a href="/admin/reviews"><p>View patients feedbacks</p></a>
              </td>
         </tr>
     </sec:authorize>
@@ -29,34 +29,34 @@
     <sec:authorize access="hasAuthority('PATIENT')">
         <tr>
              <td class = "left-menu-bar">
-                <a href="/patient/doctors"><p>Записатся на прием</p></a>
+                <a href="/patient/doctors"><p>Make an appointment</p></a>
              </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/patient/visits"><p>Список запланированных посешений</p></a>
+                <a href="/patient/visits"><p>List of planned visits</p></a>
              </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/patient/reviews"><p>Оставить отзыв о враче</p></a>
+                <a href="/patient/reviews"><p>Leave feedback</p></a>
              </td>
         </tr>
     </sec:authorize>
     <sec:authorize access="hasAuthority('DOCTOR')">
         <tr>
              <td class = "left-menu-bar">
-                <a href="/doctor/today"><p>Приемы сегодня</p></a>
+                <a href="/doctor/today"><p>Schedule for today</p></a>
              </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/doctor/timeTable"><p>Мое расписание</p></a>
+                <a href="/doctor/timeTable"><p>Schedule</p></a>
              </td>
         </tr>
         <tr>
              <td class = "left-menu-bar">
-                <a href="/doctor/visitRecords"><p>Просмотр архива посешений</p></a>
+                <a href="/doctor/visitRecords"><p>Viewing the archive of visits</p></a>
              </td>
         </tr>
     </sec:authorize>

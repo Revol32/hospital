@@ -29,7 +29,7 @@
 
         <div class = "dark-background-form-holder" id = "dark-background-form-holder">
             <form:form action="/doctor/saveRecord" method="post" modelAttribute="recordForm" id = "recordForm">
-                <h3>Запись о приеме</h3>
+                <h3>Appointment record</h3>
                 <div>
                    <form:hidden path="rec_id" id="rec_id" title="rec_id" />
                 </div>
@@ -37,7 +37,7 @@
                    <form:textarea rows="11" cols="60" path="record" id="record" title="record" />
                 </div>
                 <div>
-                <button type="submit" id="saveButton" >Сохранить</button>
+                <button type="submit" id="saveButton" >Save</button>
                 </div>
             </form:form>
 

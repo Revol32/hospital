@@ -34,32 +34,32 @@
                       <div id="loginOk"></div>
 
                       <div>
-                              <label title="Name">Имя</label>
+                              <label title="Name">First name</label>
                               <form:input path="name" title="Name" />
                             </div>
 
                        <div>
-                            <label title="Surname">Фамилия</label>
+                            <label title="Surname">Last name</label>
                             <form:input path="surname" title="Surname" />
                       </div>
 
                       <div>
-                           <label title="Birthday">Дата рождения</label>
+                           <label title="Birthday">Date of birth</label>
                            <form:input path="birthday" title="Birthday" type="date"/>
                       </div>
 
                       <div>
-                           <label title="Специальность">Специальность</label>
+                           <label title="Специальность">Specialty</label>
                            <form:input path="specialty" title="Specialty" />
                       </div>
 
                       <div>
-                           <label title="Описание">Описание</label>
+                           <label title="Описание">Info</label>
                            <form:textarea rows="5" cols="30" path="specification" title="Specification" />
                       </div>
 
                       <div>
-                           <label title="Ученая степень">Ученая степень</label>
+                           <label title="Ученая степень">Experience</label>
                            <form:input path="experience" title="Experience" />
                       </div>
                       <div>

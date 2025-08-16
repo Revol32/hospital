@@ -9,8 +9,8 @@
      <c:forEach items="${reviewsList}" var="review">
         <div class = "doctor-frame">
             <div class = "info-frame">
-                <div class = "doctor-name" >Пациент: ${review.value.name} ${review.value.surname}</div>
-                <div class = "doctor-spec"><p class = "doctorSmallInfo">Дата рождения: ${review.value.birthday}</p></div>
+                <div class = "doctor-name" >Patient: ${review.value.name} ${review.value.surname}</div>
+                <div class = "doctor-spec"><p class = "doctorSmallInfo">Date of birth: ${review.value.birthday}</p></div>
                 <div class = "doctor-record">${review.key.review}</div>
             </div>
         </div>
@@ -23,11 +23,11 @@
            <form:hidden path="rec_id" id="rec_id" title="rec_id" value = "${recId}"/>
         </div>
         <div>
-           <label title="Отзыв">Оставте свой отзыв</label>
+           <label title="Отзыв">Leave your feedback</label>
            <form:textarea rows="7" cols="120" path="review" id="review" title="review" />
         </div>
         <div>
-        <button type="submit" id="sendButton" >Подтвердить</button>
+        <button type="submit" id="sendButton" >Confirm</button>
         </div>
     </form:form>
 </sec:authorize>

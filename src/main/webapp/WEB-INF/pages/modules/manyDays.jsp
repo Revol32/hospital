@@ -12,8 +12,8 @@
             <div class = "doctor-frame">
                 <div class = "info-frame">
                     <div class = "doctor-name" >${today.key.time_app}</div>
-                    <div class = "doctor-spec"><p class = "doctorSmallInfo left">Пациент:</p><p class = "doctorSmallInfo"><c:if test="${today.value.name == null}">Нет записи</c:if>${today.value.name} ${today.value.surname}</p>
-                    <p class = "doctorSmallInfo">Дата рождения: ${today.value.birthday}</p></div>
+                    <div class = "doctor-spec"><p class = "doctorSmallInfo left">Patient:</p><p class = "doctorSmallInfo"><c:if test="${today.value.name == null}">Free slot</c:if>${today.value.name} ${today.value.surname}</p>
+                    <p class = "doctorSmallInfo">Date of birth: ${today.value.birthday}</p></div>
                     <div class = "hide" id = "Record${today.key.rec_id}">${today.key.record}</div>
                     <div class = "hide" id = ""></div>
                 </div>

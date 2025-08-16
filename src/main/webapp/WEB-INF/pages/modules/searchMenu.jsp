@@ -12,12 +12,12 @@
     <div class="error">${updateError}</div>
     <div class = "searchMenu">
     <form:form modelAttribute="searchForm">
-    <h3>История приемов врача: ${doctor.name} ${doctor.surname}</h3>
+    <h3>History of doctor's appointments: ${doctor.name} ${doctor.surname}</h3>
     <div class = "searchFrame">
-        <div class = "searchLabel">Поиск по пациенту:</div>
+        <div class = "searchLabel">Search by patient:</div>
         <div>
             <form:select path="patient_id" name="patient_id" id ="patientId" onchange="getPatientHistoryForAdmin()">
-                <form:option value="0" disabled="true" selected="true" label="Выберете пациента" />
+                <form:option value="0" disabled="true" selected="true" label="Select a patient" />
                  <c:forEach items="${patientsList}" var="patient">
                     <form:option value = "${patient.id}" label="${patient.name} ${patient.surname}, ${patient.birthday}" />
                 </c:forEach>
@@ -25,11 +25,12 @@
         </div>
     </div>
     <div class = "searchFrame">
-        <div class = "searchLabel">Поиск дате:</div>
+        <div class = "searchLabel">Search by date:</div>
         <div>
             <form:input  path="date" name="date" id ="date" onchange="getDayHistory()" disabled="disabled" />
         </div>
     </div>
     </form:form>
     <div id="result2"></div>
+    </div>
 </div>

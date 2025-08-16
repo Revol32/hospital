@@ -15,13 +15,13 @@ $(document).ready(function(){
                 passMatchError.css('display', 'none');
                 passMatchTriger (true);
             }else{
-                passMatchError.text('Пароли не совпадают');
+                passMatchError.text('The passwords do not match');
                 passMatchError.css('display', 'block');
                 registrationButton.attr('disabled', 'disabled');
                 passMatchTriger (false);
             }
         }else{
-            passMatchError.text('Введите пароль');
+            passMatchError.text('Enter password');
             passMatchError.css('display', 'block');
             registrationButton.attr('disabled', 'disabled');
             passMatchTriger (false);
@@ -40,12 +40,12 @@ $(document).ready(function(){
                     data: {login:login},
                     success: function (data) {
                         if(data != "") {
-                            loginError.text('Данный логин занят');
+                            loginError.text('This login is taken');
                             loginError.css('display', 'block');
                             registrationButton.attr('disabled', 'disabled');
                             validLoginTriger (false);
                         }else{
-                            loginOk.text('Вы можете использовать этот логин');
+                            loginOk.text('You can use this login');
                             loginOk.css('display', 'block');
                             validLoginTriger (true);
                         }
@@ -56,14 +56,14 @@ $(document).ready(function(){
                 });
             }else{
                 loginOk.css('display', 'none');
-                loginError.text('Минимальная длина логина 4 символа');
+                loginError.text('Minimum login length is 4 characters');
                 loginError.css('display', 'block');
                 registrationButton.attr('disabled', 'disabled');
                 validLoginTriger (false);
             }
         }else{
             loginOk.css('display', 'none');
-            loginError.text('Введите логин');
+            loginError.text('Enter login');
             loginError.css('display', 'block');
             registrationButton.attr('disabled', 'disabled');
             validLoginTriger (false);

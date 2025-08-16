@@ -2,5 +2,5 @@
 <!DOCTYPE html>
 
 <footer>
-    <p>Телефон регистратуры: *(***) ***-**-**</p>
+    <p>Reception phone number: *(***) ***-**-**</p>
 </footer>

@@ -28,7 +28,7 @@
                 <sec:authorize access="hasAuthority('ADMIN')">
 
                         <h3>
-                            Просмотр архива отзовов
+                            View feedbacks archive
                         </h3>
                         <div>
                         <form:form id = "doctorSelectForm" modelAttribute="docReviewsForm">
@@ -45,13 +45,13 @@
                 <sec:authorize access="hasAuthority('PATIENT')">
 
                         <h3>
-                            Оставить отзыв на прием
+                            Leave a feedback for the appointment
                         </h3>
                         <div>
                         <form:form id = "doctorSelectForm" modelAttribute="docReviewsForm">
-                            <div class = "info">Оставить отзыв на прием возможно в течении 14 дней</div>
+                            <div class = "info">You can leave a feedback of the appointment within 14 days</div>
                             <form:select path="rec_id" id = "rec_id" name="recId" onchange="getReviewForm()">
-                                <form:option value="0" disabled="true" selected="true" label="Выберете примем на который хотите оставить отзыв" />
+                                <form:option value="0" disabled="true" selected="true" label="Select the appointment you want to leave feedback on" />
                                  <c:forEach items="${appointments}" var="appointment">
                                     <form:option value = "${appointment.rec_id}" label="${appointment.date_app} ${appointment.time_app}, ${appointment.doctorName} ${appointment.doctorSurname}, ${appointment.specialty}" />
                                 </c:forEach>

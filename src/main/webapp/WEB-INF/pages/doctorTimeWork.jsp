@@ -24,10 +24,10 @@
             <div class = "content">
                 <div class="error">${updateDoctorError}</div>
                 <div>
-                    <h3>Расписание для ${doctor.name} ${doctor.surname}</h3>
+                    <h3>Schedule for ${doctor.name} ${doctor.surname}</h3>
                     <form:form modelAttribute="dayForm">
                         <div>
-                            Выбирете дату
+                            Select date
                         </div>
                         <div>
                             <form:input path="date_app" title="date_app" type="date" min="${tomorrow}" id = "date_app" onchange="getDateWorkTime('${doctorId}')"/>

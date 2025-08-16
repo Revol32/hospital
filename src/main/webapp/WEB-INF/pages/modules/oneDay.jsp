@@ -9,8 +9,8 @@
         <div class = "doctor-frame">
             <div class = "info-frame">
                 <div class = "doctor-name" >${today.key.time_app}</div>
-                <div class = "doctor-spec"><p class = "doctorSmallInfo left">Пациент:</p><p class = "doctorSmallInfo"><c:if test="${today.value.name == null}">Нет записи</c:if>${today.value.name} ${today.value.surname}</p>
-                <p class = "doctorSmallInfo">Дата рождения: ${today.value.birthday}</p></div>
+                <div class = "doctor-spec"><p class = "doctorSmallInfo left">Patient:</p><p class = "doctorSmallInfo"><c:if test="${today.value.name == null}">Free slot</c:if>${today.value.name} ${today.value.surname}</p>
+                <p class = "doctorSmallInfo">Date of birth: ${today.value.birthday}</p></div>
                 <div class = "hide" id = "Record${today.key.rec_id}">${today.key.record}</div>
                 <div class = "hide" id = ""></div>
             </div>
@@ -18,14 +18,14 @@
             <c:if test="${today.value.name != null}">
                 <sec:authorize access="hasAuthority('DOCTOR')">
                     <c:if test="${today.key.visit == null}">
-                        <div class = "doctor-button"><a href="#" onclick="startRecord('${today.key.rec_id}')"><p>Начать прием</p></a></div>
-                        <div class = "doctor-button"><a href="/doctor/didNotCome/${today.key.rec_id}"><p>Неявка</p></a></div>
+                        <div class = "doctor-button"><a href="#" onclick="startRecord('${today.key.rec_id}')"><p>Start appointment</p></a></div>
+                        <div class = "doctor-button"><a href="/doctor/didNotCome/${today.key.rec_id}"><p>Missed an appointment</p></a></div>
                     </c:if>
                     <c:if test="${today.key.visit == true}">
-                        <div class = "doctor-button"><a href="#" onclick="editRecord('${today.key.rec_id}')"><p>Редактировать</p></a></div>
+                        <div class = "doctor-button"><a href="#" onclick="editRecord('${today.key.rec_id}')"><p>Edit</p></a></div>
                     </c:if>
                     <c:if test="${today.key.visit == false}">
-                        <p>Не явился</p>
+                        <p>Missed an appointment</p>
                     </c:if>
                 </sec:authorize>
                 <sec:authorize access="hasAuthority('ADMIN')">
@@ -33,10 +33,10 @@
                         <div class = "doctor-record">${today.key.record}</div>
                     </c:if>
                     <c:if test="${today.key.visit == false}">
-                        <div class = "doctor-record">Не явился</div>
+                        <div class = "doctor-record">Missed an appointment</div>
                     </c:if>
                     <c:if test="${today.key.visit == null}">
-                        <div class = "doctor-record">Прием не открывался</div>
+                        <div class = "doctor-record">The doctor's appointment was not open</div>
                     </c:if>
                 </sec:authorize>
             </c:if>
