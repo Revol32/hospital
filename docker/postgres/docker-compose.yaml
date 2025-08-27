@@ -1,13 +1,11 @@
-version: '3'
+version: '3.9'
 networks:
   dce-planner-net:
 services:
-  dce-planner-database:
+  hospital-database:
     container_name: postgres-db
     image: postgres:14.18
     restart: on-failure:3
-    networks:
-      - hospital-net
     volumes:
       - hospital-database:/var/lib/postgresql/data
     environment:

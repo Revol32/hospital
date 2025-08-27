@@ -23,7 +23,7 @@
             <div class = "content">
                 <form:form action="/admin/createDoctor/proceed" method="post" modelAttribute="registrationDoctorForm">
                       <p title="Registration form">
-                        Регистрация врача
+                          Doctor registration
                       </p>
 
                       <div>
@@ -49,17 +49,17 @@
                       </div>
 
                       <div>
-                           <label title="Специальность">Specialty</label>
+                           <label title="Specialty">Specialty</label>
                            <form:input path="specialty" title="Specialty" />
                       </div>
 
                       <div>
-                           <label title="Описание">Info</label>
+                           <label title="Info">Info</label>
                            <form:textarea rows="5" cols="30" path="specification" title="Specification" />
                       </div>
 
                       <div>
-                           <label title="Ученая степень">Experience</label>
+                           <label title="Experience">Experience</label>
                            <form:input path="experience" title="Experience" />
                       </div>
                       <div>
@@ -74,7 +74,7 @@
                       <div id="passMatchError"></div>
 
                       <div>
-                        <button type="submit" id="registrationButton" disabled="disabled">Подтвердить</button>
+                        <button type="submit" id="registrationButton" disabled="disabled">Confirm</button>
                       </div>
                     </form:form>
             </div>

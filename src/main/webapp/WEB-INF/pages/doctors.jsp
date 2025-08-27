@@ -26,7 +26,7 @@
                 <c:forEach items="${doctors}" var="doctor">
                     <div class = "doctor-frame">
                         <div class = "doctor-name" ><h3 id = "doctorName${doctor.id}">${doctor.name} ${doctor.surname}</h3></div>
-                        <div class = "doctor-spec"><p class = "doctorSmallInfo left">Специальность:</p><p class = "doctorSmallInfo" id = "specialty${doctor.id}"> ${doctor.specialty}</p>
+                        <div class = "doctor-spec"><p class = "doctorSmallInfo left">Specialty:</p><p class = "doctorSmallInfo" id = "specialty${doctor.id}"> ${doctor.specialty}</p>
                         <p class = "doctorSmallInfo" id = "experience${doctor.id}">${doctor.experience}</p></div>
                         <div class= "doctor-info clear"><p id = "specification${doctor.id}">${doctor.specification}</p></div>
                         <div class = "doctor-act">
@@ -58,7 +58,7 @@
                    <form:hidden path="id" id="id" title="id" />
                 </div>
                 <div>
-                   <label title="Специальность">Specialty</label>
+                   <label title="Specialty">Specialty</label>
                    <form:input path="specialty" id="specialty" title="Specialty" />
                 </div>
 

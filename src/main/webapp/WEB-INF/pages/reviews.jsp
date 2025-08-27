@@ -33,7 +33,7 @@
                         <div>
                         <form:form id = "doctorSelectForm" modelAttribute="docReviewsForm">
                             <form:select path="doctorId" name="doctorId" id ="doctorId" onchange="getReviews()">
-                                <form:option value="0" disabled="true" selected="true" label="Выберете врача" />
+                                <form:option value="0" disabled="true" selected="true" label="Сhoose a doctor" />
                                  <c:forEach items="${doctorsLists}" var="doctor">
                                     <form:option value = "${doctor.id}" label="${doctor.name} ${doctor.surname}" />
                                 </c:forEach>
